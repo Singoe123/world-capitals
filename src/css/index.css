@@ -1,0 +1,36 @@
+.title{
+    text-align: center;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input{
+    resize: none;
+    height: 1em;
+    overflow: hidden;
+}
+
+.flash-red{
+    animation: animation-red 0.3s ease;
+}
+
+.flash-green{
+    animation: animation-green 0.3s ease;
+}
+
+@keyframes animation-red{
+    0% {background-color: white;}
+    50% {background-color: red;}
+    100% {background-color: white;}
+}
+
+@keyframes animation-green{
+    0% {background-color: white;}
+    50% {background-color: green;}
+    100% {background-color: white;}
+}

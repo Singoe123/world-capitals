@@ -12,16 +12,24 @@ capitals = {
     Paraguay: "asuncion",
     Brazil: "brasilia",
     Guyana: "georgetown",
-    Surinam: "paramirabo"
+    Surinam: "paramaribo"
 }
 
 let keys = Object.keys(capitals)
-let expected = undefined
+const countries = keys.length
+let score = 0
+let expected
 function getCountry(){
+    if(keys.length === 0){
+        document.getElementById("game").innerHTML = "Final score: " + String(score)+"/"+String(countries)
+        return false
+    }
     let index = Math.floor(Math.random() * keys.length)
     document.getElementById("country-display").innerHTML = keys[index]
     expected = capitals[keys[index]]
+    keys.splice(index, 1)
     console.log(expected)
+    return true
 }
 function submit(){
     let body = document.body
@@ -29,11 +37,14 @@ function submit(){
     if (document.getElementById("answer").value.toLowerCase() === expected){
         body.classList.add("flash-green")
         setTimeout(function(){body.classList.remove("flash-green")}, 300)
-        getCountry()
+        score += 1
+        if (!getCountry()) return
     }else{
         body.classList.add("flash-red")
         setTimeout(function(){body.classList.remove("flash-red")}, 300)
+        score -= 0.5
     }
+    document.getElementById("score").innerHTML = ("score: " + String(score))
     document.getElementById("answer").value = ""
 }
 

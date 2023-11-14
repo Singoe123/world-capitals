@@ -60,13 +60,13 @@ body{
 }
 
 @keyframes animation-red{
-    0% {background-color: #afeeee;}
-    50% {background-color: red;}
-    100% {background-color: #afeeee;}
+    0% {background: rgba(255, 255, 255, 0.4);}
+    50% {background: rgba(255, 0, 0, 0.6);}
+    100% {background: rgba(255, 255, 255, 0.4);}
 }
 
 @keyframes animation-green{
-    0% {background-color: #afeeee;}
-    50% {background-color: green;}
-    100% {background-color: #afeeee;}
+    0% {background: rgba(255, 255, 255, 0.4);}
+    50% {background: rgba(0, 180, 0, 0.6);}
+    100% {background: rgba(255, 255, 255, 0.4);}
 }

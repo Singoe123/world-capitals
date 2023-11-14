@@ -32,16 +32,24 @@ function getCountry(){
     return true
 }
 function submit(){
+    let divs = document.querySelectorAll('.block');
+
+    /*
+    */
     let body = document.body
     console.log(document.getElementById("answer").value.toLowerCase())
     if (document.getElementById("answer").value.toLowerCase() === expected){
-        body.classList.add("flash-green")
-        setTimeout(function(){body.classList.remove("flash-green")}, 300)
+        divs.forEach(function(div) {
+            div.classList.add("flash-green")
+            setTimeout(function(){div.classList.remove("flash-green")}, 300)
+        });
         score += 1
         if (!getCountry()) return
     }else{
-        body.classList.add("flash-red")
-        setTimeout(function(){body.classList.remove("flash-red")}, 300)
+        divs.forEach(function(div) {
+            div.classList.add("flash-red")
+            setTimeout(function(){div.classList.remove("flash-red")}, 300)
+        });
         score -= 0.5
     }
     document.getElementById("score").innerHTML = ("score: " + String(score))
